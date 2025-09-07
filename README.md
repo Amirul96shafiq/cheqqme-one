@@ -17,13 +17,14 @@ A modern, mobile-first frontend portal for browsing, searching, and managing dat
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 - Running Laravel backend at `data.cheqqme.com`
 
 ### Installation
 
 1. **Clone and install dependencies:**
+
    ```bash
    git clone <repository-url>
    cd cheqqme-one
@@ -31,11 +32,13 @@ A modern, mobile-first frontend portal for browsing, searching, and managing dat
    ```
 
 2. **Configure environment:**
+
    ```bash
    cp .env.example .env.local
    ```
-   
+
    Edit `.env.local`:
+
    ```env
    NEXT_PUBLIC_API_URL=https://data.cheqqme.com/api
    NEXT_PUBLIC_APP_NAME=CHEQQME One
@@ -43,6 +46,7 @@ A modern, mobile-first frontend portal for browsing, searching, and managing dat
    ```
 
 3. **Run development server:**
+
    ```bash
    npm run dev
    ```
@@ -53,11 +57,13 @@ A modern, mobile-first frontend portal for browsing, searching, and managing dat
 ## 📱 PWA Installation
 
 ### Mobile (iOS/Android)
+
 1. Open the app in your mobile browser
 2. Tap the "Add to Home Screen" option
 3. The app will install as a native app
 
 ### Desktop
+
 1. Open the app in Chrome/Edge
 2. Look for the install icon in the address bar
 3. Click to install as a desktop app
@@ -118,7 +124,7 @@ The app expects these Laravel API endpoints:
 ```bash
 # Authentication
 POST /api/auth/login          # Login user
-POST /api/auth/register       # Register user  
+POST /api/auth/register       # Register user
 POST /api/auth/logout         # Logout user
 GET  /api/user               # Get current user
 
@@ -127,7 +133,7 @@ GET  /api/dashboard/stats     # Dashboard statistics
 
 # Resources
 GET  /api/projects           # List projects
-GET  /api/clients            # List clients  
+GET  /api/clients            # List clients
 GET  /api/documents          # List documents
 ```
 
@@ -141,13 +147,13 @@ GET  /api/documents          # List documents
 ### API Client Usage
 
 ```typescript
-import { fetchWithAuth } from '@/lib/api';
+import { fetchWithAuth } from "@/lib/api";
 
 // GET request
-const response = await fetchWithAuth.get<ProjectType[]>('/projects');
+const response = await fetchWithAuth.get<ProjectType[]>("/projects");
 
 // POST request
-const newProject = await fetchWithAuth.post('/projects', projectData);
+const newProject = await fetchWithAuth.post("/projects", projectData);
 
 // Set/clear tokens
 fetchWithAuth.setToken(token);
@@ -159,10 +165,10 @@ fetchWithAuth.clearToken();
 The app supports dark/light/system themes using `next-themes`:
 
 ```typescript
-import { useTheme } from 'next-themes';
+import { useTheme } from "next-themes";
 
 const { theme, setTheme } = useTheme();
-setTheme('dark' | 'light' | 'system');
+setTheme("dark" | "light" | "system");
 ```
 
 Theme persistence is automatic across sessions.
@@ -208,16 +214,19 @@ npm run start
 ### Common Issues
 
 **API Connection Issues:**
+
 - Verify `NEXT_PUBLIC_API_URL` is correct
 - Check CORS settings on Laravel backend
 - Ensure backend is accessible from frontend domain
 
 **Authentication Issues:**
+
 - Clear browser cookies and localStorage
 - Verify Sanctum configuration on backend
 - Check network tab for 401 errors
 
 **Build Issues:**
+
 - Clear `.next` folder and rebuild
 - Check all environment variables are set
 - Verify all dependencies are installed
@@ -225,7 +234,7 @@ npm run start
 ### Development Tips
 
 - Use browser dev tools for network debugging
-- Check console for error messages  
+- Check console for error messages
 - Use React DevTools for component debugging
 - Monitor API responses in Network tab
 
