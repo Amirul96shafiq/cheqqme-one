@@ -66,7 +66,7 @@ export function AppHeader() {
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 <div className="flex flex-col space-y-6 py-6">
                   <div className="px-3">
-                    <h2 className="text-2xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+                    <h2 className="text-2xl font-bold tracking-tight bg-gradient-to-r from-[#00AE9F] to-[#fbb43e] bg-clip-text text-transparent">
                       CHEQQME One
                     </h2>
                     <p className="text-sm text-muted-foreground mt-1">Data Management Portal</p>
@@ -80,7 +80,7 @@ export function AppHeader() {
                           href={item.href}
                           className={`flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition-all hover:bg-accent hover:text-accent-foreground ${
                             pathname === item.href
-                              ? "bg-primary/10 text-primary border-l-2 border-primary"
+                              ? "bg-[#00AE9F]/10 text-[#00AE9F] border-l-2 border-[#00AE9F]"
                               : "text-muted-foreground hover:text-foreground"
                           }`}
                         >
@@ -96,8 +96,8 @@ export function AppHeader() {
 
             {/* Logo */}
             <Link href="/dashboard" className="flex items-center space-x-3">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
-                <Command className="h-4 w-4 text-primary-foreground" />
+              <div className="h-8 w-8 rounded-lg bg-[#00AE9F] flex items-center justify-center">
+                <Command className="h-4 w-4 text-white" />
               </div>
               <div className="hidden sm:block">
                 <div className="text-xl font-bold bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text text-transparent">
@@ -114,7 +114,7 @@ export function AppHeader() {
                   href={item.href}
                   className={`px-3 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
                     pathname === item.href
-                      ? "bg-primary/10 text-primary"
+                      ? "bg-[#00AE9F]/10 text-[#00AE9F]"
                       : "text-muted-foreground hover:text-foreground hover:bg-accent"
                   }`}
                 >
@@ -132,7 +132,7 @@ export function AppHeader() {
               <Input
                 type="search"
                 placeholder="Search everything..."
-                className="pl-10 w-[250px] lg:w-[320px] bg-background/50 border-border/50 focus:bg-background focus:border-primary/50 transition-all duration-200"
+                className="pl-10 w-[250px] lg:w-[320px] bg-background/50 border-border/50 focus:bg-background focus:border-ring transition-all duration-200"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -150,7 +150,7 @@ export function AppHeader() {
             <div className="relative">
               <Button variant="ghost" size="icon" className="relative">
                 <Bell className="h-4 w-4" />
-                <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs bg-primary text-primary-foreground">
+                <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs bg-[#fbb43e] text-white">
                   3
                 </Badge>
               </Button>
@@ -162,7 +162,7 @@ export function AppHeader() {
                 <Button variant="ghost" className="relative h-9 w-9 rounded-full">
                   <Avatar className="h-9 w-9">
                     <AvatarImage src="/placeholder-avatar.jpg" alt={user?.name || "User"} />
-                    <AvatarFallback className="bg-primary/10 text-primary font-medium">
+                    <AvatarFallback className="bg-[#00AE9F]/10 text-[#00AE9F] font-medium">
                       {user?.name ? user.name.charAt(0).toUpperCase() : "U"}
                     </AvatarFallback>
                   </Avatar>

@@ -15,7 +15,7 @@ export default function DocumentsPage() {
         <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 max-w-7xl">
           <div className="flex flex-col space-y-8">
             <div>
-              <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+              <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-[#00AE9F] to-[#fbb43e] bg-clip-text text-transparent">
                 Documents
               </h1>
               <p className="text-lg text-muted-foreground mt-2">
@@ -27,8 +27,8 @@ export default function DocumentsPage() {
               {/* Coming Soon Card */}
               <Card className="md:col-span-2 lg:col-span-3 border-0 bg-card/50 backdrop-blur-sm shadow-lg">
                 <CardHeader className="text-center pb-4">
-                  <div className="h-16 w-16 rounded-full bg-gradient-to-br from-purple-500/20 to-purple-600/20 flex items-center justify-center mx-auto mb-4">
-                    <FileText className="h-8 w-8 text-purple-600" />
+                  <div className="h-16 w-16 rounded-full bg-gradient-to-br from-[#fbb43e]/20 to-[#fbb43e]/30 flex items-center justify-center mx-auto mb-4">
+                    <FileText className="h-8 w-8 text-[#fbb43e]" />
                   </div>
                   <CardTitle className="text-2xl font-bold">Document Management Coming Soon</CardTitle>
                   <CardDescription className="text-base max-w-2xl mx-auto">
@@ -38,8 +38,8 @@ export default function DocumentsPage() {
                 <CardContent className="space-y-6">
                   <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                     <div className="flex items-start space-x-3 p-4 rounded-lg bg-gradient-to-r from-background/80 to-background/40">
-                      <div className="h-8 w-8 rounded-lg bg-purple-100 dark:bg-purple-900/20 flex items-center justify-center flex-shrink-0">
-                        <Upload className="h-4 w-4 text-purple-600" />
+                      <div className="h-8 w-8 rounded-lg bg-[#fbb43e]/20 flex items-center justify-center flex-shrink-0">
+                        <Upload className="h-4 w-4 text-[#fbb43e]" />
                       </div>
                       <div>
                         <h3 className="font-medium text-sm">Drag & Drop Upload</h3>
@@ -48,8 +48,8 @@ export default function DocumentsPage() {
                     </div>
                     
                     <div className="flex items-start space-x-3 p-4 rounded-lg bg-gradient-to-r from-background/80 to-background/40">
-                      <div className="h-8 w-8 rounded-lg bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center flex-shrink-0">
-                        <Filter className="h-4 w-4 text-blue-600" />
+                      <div className="h-8 w-8 rounded-lg bg-[#00AE9F]/20 flex items-center justify-center flex-shrink-0">
+                        <Filter className="h-4 w-4 text-[#00AE9F]" />
                       </div>
                       <div>
                         <h3 className="font-medium text-sm">Smart Filtering</h3>
@@ -58,8 +58,8 @@ export default function DocumentsPage() {
                     </div>
                     
                     <div className="flex items-start space-x-3 p-4 rounded-lg bg-gradient-to-r from-background/80 to-background/40">
-                      <div className="h-8 w-8 rounded-lg bg-green-100 dark:bg-green-900/20 flex items-center justify-center flex-shrink-0">
-                        <Share className="h-4 w-4 text-green-600" />
+                      <div className="h-8 w-8 rounded-lg bg-[#fbb43e]/20 flex items-center justify-center flex-shrink-0">
+                        <Share className="h-4 w-4 text-[#fbb43e]" />
                       </div>
                       <div>
                         <h3 className="font-medium text-sm">File Sharing</h3>
@@ -68,8 +68,8 @@ export default function DocumentsPage() {
                     </div>
                     
                     <div className="flex items-start space-x-3 p-4 rounded-lg bg-gradient-to-r from-background/80 to-background/40">
-                      <div className="h-8 w-8 rounded-lg bg-orange-100 dark:bg-orange-900/20 flex items-center justify-center flex-shrink-0">
-                        <Download className="h-4 w-4 text-orange-600" />
+                      <div className="h-8 w-8 rounded-lg bg-[#00AE9F]/20 flex items-center justify-center flex-shrink-0">
+                        <Download className="h-4 w-4 text-[#00AE9F]" />
                       </div>
                       <div>
                         <h3 className="font-medium text-sm">Bulk Operations</h3>
@@ -78,8 +78,8 @@ export default function DocumentsPage() {
                     </div>
                     
                     <div className="flex items-start space-x-3 p-4 rounded-lg bg-gradient-to-r from-background/80 to-background/40">
-                      <div className="h-8 w-8 rounded-lg bg-red-100 dark:bg-red-900/20 flex items-center justify-center flex-shrink-0">
-                        <FileText className="h-4 w-4 text-red-600" />
+                      <div className="h-8 w-8 rounded-lg bg-[#fbb43e]/20 flex items-center justify-center flex-shrink-0">
+                        <FileText className="h-4 w-4 text-[#fbb43e]" />
                       </div>
                       <div>
                         <h3 className="font-medium text-sm">File Preview</h3>
@@ -93,7 +93,7 @@ export default function DocumentsPage() {
                       <Clock className="h-3 w-3 mr-1" />
                       In Development
                     </Badge>
-                    <Button disabled className="bg-gradient-to-r from-purple-500 to-purple-600 text-white opacity-50">
+                    <Button disabled className="bg-gradient-to-r from-[#fbb43e] to-[#fbb43e]/90 text-white opacity-50">
                       <Upload className="h-4 w-4 mr-2" />
                       Upload Documents (Coming Soon)
                     </Button>

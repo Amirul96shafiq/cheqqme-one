@@ -71,7 +71,7 @@ export default function DashboardPage() {
             <div className="flex flex-col space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                  <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-[#00AE9F] to-[#fbb43e] bg-clip-text text-transparent">
                     Welcome back, {user?.name}!
                   </h1>
                   <p className="text-lg text-muted-foreground mt-2">
@@ -91,18 +91,23 @@ export default function DashboardPage() {
                 const Icon = stat.icon;
                 return (
                   <Card key={stat.title} className="relative overflow-hidden border-0 bg-card/50 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
                       <CardTitle className="text-sm font-medium text-muted-foreground">
                         {stat.title}
                       </CardTitle>
                       <div className={`p-2 rounded-lg bg-gradient-to-br ${
-                        index === 0 ? 'from-blue-500/10 to-blue-600/10' :
-                        index === 1 ? 'from-green-500/10 to-green-600/10' :
-                        index === 2 ? 'from-purple-500/10 to-purple-600/10' :
-                        'from-orange-500/10 to-orange-600/10'
+                        index === 0 ? 'from-[#00AE9F]/10 to-[#00AE9F]/20' :
+                        index === 1 ? 'from-[#fbb43e]/10 to-[#fbb43e]/20' :
+                        index === 2 ? 'from-[#00AE9F]/10 to-[#00AE9F]/20' :
+                        'from-[#fbb43e]/10 to-[#fbb43e]/20'
                       }`}>
-                        <Icon className={`h-5 w-5 ${stat.color}`} />
+                        <Icon className={`h-5 w-5 ${
+                          index === 0 ? 'text-[#00AE9F]' :
+                          index === 1 ? 'text-[#fbb43e]' :
+                          index === 2 ? 'text-[#00AE9F]' :
+                          'text-[#fbb43e]'
+                        }`} />
                       </div>
                     </CardHeader>
                     <CardContent>
@@ -154,12 +159,12 @@ export default function DashboardPage() {
                 ) : stats?.recent_documents?.length ? (
                   <div className="space-y-3">
                     {stats.recent_documents.map((doc) => (
-                      <div key={doc.id} className="flex items-center space-x-4 p-4 rounded-lg border bg-gradient-to-r from-background/80 to-background/40 hover:from-primary/5 hover:to-primary/10 transition-all duration-200 group">
-                        <div className="h-12 w-12 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center group-hover:from-primary/20 group-hover:to-primary/10 transition-all duration-200">
-                          <FileText className="h-6 w-6 text-primary" />
+                      <div key={doc.id} className="flex items-center space-x-4 p-4 rounded-lg border bg-gradient-to-r from-background/80 to-background/40 hover:bg-accent/5 transition-all duration-200 group">
+                        <div className="h-12 w-12 bg-gradient-to-br from-[#00AE9F]/10 to-[#00AE9F]/20 rounded-xl flex items-center justify-center group-hover:shadow-md transition-all duration-200">
+                          <FileText className="h-6 w-6 text-[#00AE9F]" />
                         </div>
                         <div className="space-y-1 flex-1">
-                          <p className="text-sm font-medium leading-none group-hover:text-primary transition-colors duration-200">
+                          <p className="text-sm font-medium leading-none group-hover:text-foreground transition-colors duration-200">
                             {doc.name}
                           </p>
                           <p className="text-sm text-muted-foreground">

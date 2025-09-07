@@ -55,14 +55,14 @@ export default function ProjectsPage() {
             {/* Header */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
               <div>
-                <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+                <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-[#00AE9F] to-[#fbb43e] bg-clip-text text-transparent">
                   Projects
                 </h1>
                 <p className="text-lg text-muted-foreground mt-2">
                   Manage and browse all your projects
                 </p>
               </div>
-              <Button className="w-full sm:w-auto bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg">
+              <Button className="w-full sm:w-auto bg-gradient-to-r from-[#00AE9F] to-[#00AE9F]/90 hover:from-[#00AE9F]/90 hover:to-[#00AE9F] shadow-lg">
                 <Plus className="h-4 w-4 mr-2" />
                 New Project
               </Button>
@@ -76,7 +76,7 @@ export default function ProjectsPage() {
                   placeholder="Search projects or clients..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 bg-background/50 border-border/50 focus:bg-background focus:border-primary/50 transition-all duration-200"
+                  className="pl-10 bg-background/50 border-border/50 focus:bg-background focus:border-ring transition-all duration-200"
                 />
               </div>
               <Button variant="outline" className="w-full sm:w-auto bg-background/50 hover:bg-background">
@@ -107,10 +107,10 @@ export default function ProjectsPage() {
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {filteredProjects.map((project) => (
                   <Card key={project.id} className="border-0 bg-card/50 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
                     <CardHeader className="relative">
                       <div className="flex items-start justify-between">
-                        <CardTitle className="text-xl font-semibold group-hover:text-primary transition-colors duration-200">
+                        <CardTitle className="text-xl font-semibold group-hover:text-foreground transition-colors duration-200">
                           {project.name}
                         </CardTitle>
                         <Badge className={`${getStatusColor(project.status)} font-medium`}>
@@ -143,8 +143,8 @@ export default function ProjectsPage() {
               <Card className="border-0 bg-card/50 backdrop-blur-sm shadow-lg">
                 <CardContent className="flex flex-col items-center justify-center py-16">
                   <div className="text-center space-y-4">
-                    <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                      <Plus className="h-8 w-8 text-primary" />
+                    <div className="h-16 w-16 rounded-full bg-[#00AE9F]/10 flex items-center justify-center mx-auto">
+                      <Plus className="h-8 w-8 text-[#00AE9F]" />
                     </div>
                     <h3 className="text-2xl font-semibold">No projects found</h3>
                     <p className="text-muted-foreground text-lg max-w-md">
@@ -154,7 +154,7 @@ export default function ProjectsPage() {
                       }
                     </p>
                     {!searchQuery && (
-                      <Button className="mt-6 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg">
+                      <Button className="mt-6 bg-gradient-to-r from-[#00AE9F] to-[#00AE9F]/90 hover:from-[#00AE9F]/90 hover:to-[#00AE9F] shadow-lg">
                         <Plus className="h-4 w-4 mr-2" />
                         Create Your First Project
                       </Button>

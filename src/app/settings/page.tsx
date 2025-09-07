@@ -15,7 +15,7 @@ export default function SettingsPage() {
         <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 max-w-7xl">
           <div className="flex flex-col space-y-8">
             <div>
-              <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+              <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-[#00AE9F] to-[#fbb43e] bg-clip-text text-transparent">
                 Settings
               </h1>
               <p className="text-lg text-muted-foreground mt-2">
@@ -27,8 +27,8 @@ export default function SettingsPage() {
               {/* Coming Soon Card */}
               <Card className="md:col-span-2 lg:col-span-3 border-0 bg-card/50 backdrop-blur-sm shadow-lg">
                 <CardHeader className="text-center pb-4">
-                  <div className="h-16 w-16 rounded-full bg-gradient-to-br from-green-500/20 to-green-600/20 flex items-center justify-center mx-auto mb-4">
-                    <Settings className="h-8 w-8 text-green-600" />
+                  <div className="h-16 w-16 rounded-full bg-gradient-to-br from-[#00AE9F]/20 to-[#00AE9F]/30 flex items-center justify-center mx-auto mb-4">
+                    <Settings className="h-8 w-8 text-[#00AE9F]" />
                   </div>
                   <CardTitle className="text-2xl font-bold">Settings & Preferences Coming Soon</CardTitle>
                   <CardDescription className="text-base max-w-2xl mx-auto">
@@ -38,8 +38,8 @@ export default function SettingsPage() {
                 <CardContent className="space-y-6">
                   <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                     <div className="flex items-start space-x-3 p-4 rounded-lg bg-gradient-to-r from-background/80 to-background/40">
-                      <div className="h-8 w-8 rounded-lg bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center flex-shrink-0">
-                        <User className="h-4 w-4 text-blue-600" />
+                      <div className="h-8 w-8 rounded-lg bg-[#00AE9F]/20 flex items-center justify-center flex-shrink-0">
+                        <User className="h-4 w-4 text-[#00AE9F]" />
                       </div>
                       <div>
                         <h3 className="font-medium text-sm">Profile Management</h3>
@@ -48,8 +48,8 @@ export default function SettingsPage() {
                     </div>
                     
                     <div className="flex items-start space-x-3 p-4 rounded-lg bg-gradient-to-r from-background/80 to-background/40">
-                      <div className="h-8 w-8 rounded-lg bg-red-100 dark:bg-red-900/20 flex items-center justify-center flex-shrink-0">
-                        <Shield className="h-4 w-4 text-red-600" />
+                      <div className="h-8 w-8 rounded-lg bg-[#fbb43e]/20 flex items-center justify-center flex-shrink-0">
+                        <Shield className="h-4 w-4 text-[#fbb43e]" />
                       </div>
                       <div>
                         <h3 className="font-medium text-sm">Security Settings</h3>
@@ -58,8 +58,8 @@ export default function SettingsPage() {
                     </div>
                     
                     <div className="flex items-start space-x-3 p-4 rounded-lg bg-gradient-to-r from-background/80 to-background/40">
-                      <div className="h-8 w-8 rounded-lg bg-yellow-100 dark:bg-yellow-900/20 flex items-center justify-center flex-shrink-0">
-                        <Bell className="h-4 w-4 text-yellow-600" />
+                      <div className="h-8 w-8 rounded-lg bg-[#00AE9F]/20 flex items-center justify-center flex-shrink-0">
+                        <Bell className="h-4 w-4 text-[#00AE9F]" />
                       </div>
                       <div>
                         <h3 className="font-medium text-sm">Notifications</h3>
@@ -68,8 +68,8 @@ export default function SettingsPage() {
                     </div>
                     
                     <div className="flex items-start space-x-3 p-4 rounded-lg bg-gradient-to-r from-background/80 to-background/40">
-                      <div className="h-8 w-8 rounded-lg bg-purple-100 dark:bg-purple-900/20 flex items-center justify-center flex-shrink-0">
-                        <Palette className="h-4 w-4 text-purple-600" />
+                      <div className="h-8 w-8 rounded-lg bg-[#fbb43e]/20 flex items-center justify-center flex-shrink-0">
+                        <Palette className="h-4 w-4 text-[#fbb43e]" />
                       </div>
                       <div>
                         <h3 className="font-medium text-sm">Appearance</h3>
@@ -78,8 +78,8 @@ export default function SettingsPage() {
                     </div>
                     
                     <div className="flex items-start space-x-3 p-4 rounded-lg bg-gradient-to-r from-background/80 to-background/40">
-                      <div className="h-8 w-8 rounded-lg bg-green-100 dark:bg-green-900/20 flex items-center justify-center flex-shrink-0">
-                        <Globe className="h-4 w-4 text-green-600" />
+                      <div className="h-8 w-8 rounded-lg bg-[#00AE9F]/20 flex items-center justify-center flex-shrink-0">
+                        <Globe className="h-4 w-4 text-[#00AE9F]" />
                       </div>
                       <div>
                         <h3 className="font-medium text-sm">Localization</h3>
@@ -93,7 +93,7 @@ export default function SettingsPage() {
                       <Clock className="h-3 w-3 mr-1" />
                       In Development
                     </Badge>
-                    <Button disabled className="bg-gradient-to-r from-green-500 to-green-600 text-white opacity-50">
+                    <Button disabled className="bg-gradient-to-r from-[#00AE9F] to-[#00AE9F]/90 text-white opacity-50">
                       <Settings className="h-4 w-4 mr-2" />
                       Configure Settings (Coming Soon)
                     </Button>
