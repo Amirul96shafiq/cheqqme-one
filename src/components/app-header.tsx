@@ -18,7 +18,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -59,6 +59,7 @@ export function AppHeader() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-[240px] sm:w-[280px]">
+              <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               <div className="flex flex-col space-y-4 py-4">
                 <div className="px-3 py-2">
                   <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
