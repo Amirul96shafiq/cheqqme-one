@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { 
@@ -42,15 +42,40 @@ const navigation = [
 
 export function AppHeader() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [showMobileSearch, setShowMobileSearch] = useState(false);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const mobileSearchInputRef = useRef<HTMLInputElement>(null);
   const pathname = usePathname();
   const { user, logout } = useAuth();
+
+  // Handle keyboard shortcut
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.ctrlKey && event.key === '/') {
+        event.preventDefault();
+        if (window.innerWidth < 640) { // sm breakpoint
+          setShowMobileSearch(true);
+          setTimeout(() => mobileSearchInputRef.current?.focus(), 100);
+        } else {
+          searchInputRef.current?.focus();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   const handleLogout = async () => {
     await logout();
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 shadow-sm">
+    <>
+      <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 shadow-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex h-16 items-center justify-between">
           {/* Left section: Logo and navigation */}
@@ -130,16 +155,34 @@ export function AppHeader() {
             <div className="relative hidden sm:block">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
+                ref={searchInputRef}
                 type="search"
-                placeholder="Search everything..."
-                className="pl-10 w-[250px] lg:w-[320px] bg-background/50 border-border/50 focus:bg-background focus:border-ring transition-all duration-200"
+                placeholder={isSearchFocused ? "Search everything..." : "Search everything..."}
+                className="pl-10 pr-16 w-[250px] lg:w-[320px] bg-background/50 border-border/50 focus:bg-background focus:border-ring transition-all duration-200"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => setIsSearchFocused(true)}
+                onBlur={() => setIsSearchFocused(false)}
               />
+              {!isSearchFocused && !searchQuery && (
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                  <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+                    <span className="text-xs">Ctrl + </span>/
+                  </kbd>
+                </div>
+              )}
             </div>
 
             {/* Search mobile */}
-            <Button variant="ghost" size="icon" className="sm:hidden">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="sm:hidden"
+              onClick={() => {
+                setShowMobileSearch(true);
+                setTimeout(() => mobileSearchInputRef.current?.focus(), 100);
+              }}
+            >
               <Search className="h-4 w-4" />
             </Button>
 
@@ -193,5 +236,36 @@ export function AppHeader() {
         </div>
       </div>
     </header>
+
+    {/* Mobile search overlay */}
+    {showMobileSearch && (
+      <div className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm sm:hidden">
+        <div className="container mx-auto px-4 py-4">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              ref={mobileSearchInputRef}
+              type="search"
+              placeholder="Search everything..."
+              className="pl-10 pr-16 w-full bg-background border-border focus:border-ring"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onBlur={() => setShowMobileSearch(false)}
+              onKeyDown={(e) => {
+                if (e.key === 'Escape') {
+                  setShowMobileSearch(false);
+                }
+              }}
+            />
+            <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+              <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+                <span className="text-xs">Ctrl</span>/
+              </kbd>
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
   );
 }
